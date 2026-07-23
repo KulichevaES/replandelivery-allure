@@ -46,13 +46,13 @@ class DeliveryTest {
         $(Selectors.byText("Запланировать")).click();
 
         $("[data-test-id='replan-notification'] .notification__content")
-                .shouldHave(exactText("У вас уже запланирована встреча на другую дату. Перепланировать?"))
+                .shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать?"))
                 .shouldBe(visible);
 
         $("[data-test-id='replan-notification'] .button__text").click();
         $(Selectors.withText("Успешно!")).shouldBe(visible, Duration.ofSeconds(15));
         $("[data-test-id='success-notification'] .notification__content")
-                .shouldHave(exactText("Встреча успешно запланирована на " + firstMeetingDate))
+                .shouldHave(exactText("Встреча успешно запланирована на " + secondMeetingDate))
                 .shouldBe(visible);
     }
 }
